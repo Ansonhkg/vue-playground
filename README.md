@@ -6,7 +6,7 @@
 
 ``` bash
 # Git pull
-https://github.com/Ansonhkg/vue-playground.git
+git pull https://github.com/Ansonhkg/vue-playground.git vue-playground
 
 # install dependencies
 npm install

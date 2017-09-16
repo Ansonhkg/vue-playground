@@ -3,22 +3,11 @@
         <nav>
           <ul class="nav nav-pills float-right">
             
-            <!-- <li class="nav-item active">
-              <a href="#">Home</a>
-            </li> -->
-            
-
             <router-link v-if="!isAuth" tag="li" to="/login"><a>Login</a></router-link>
             <router-link v-if="!isAuth" tag="li" to="/register"><a>Register</a></router-link>
             
             <router-link v-if="isAuth" tag="li" to="/feed"><a>Feed</a></router-link>
             <router-link v-if="isAuth" tag="li" to="/products/create"><a>Create</a></router-link>
-            <!-- <router-link @click="logout" v-if="isAuth" tag="li"><a>Logout</a></router-link> -->
-
-            <!-- <li class="nav-item">
-              <a href="#/register">Feed</a>
-            </li>
-            -->
 
             <li v-if="isAuth" class="nav-item">
               <a @click="logout()" style="cursor:pointer">Logout</a>
