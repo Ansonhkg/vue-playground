@@ -1,10 +1,13 @@
 # front
 
-> A Vue.js project
+> A Vue project created to mess around its functionalities
 
 ## Build Setup
 
 ``` bash
+# Git pull
+https://github.com/Ansonhkg/vue-playground.git
+
 # install dependencies
 npm install
 
