@@ -36,10 +36,17 @@ export default {
         return{
             product:{
                 name: '',
+                user_id: 0,
                 price: 0,
                 description: ''
             }
         }
+    },
+    created(){
+         this.$http.get('api/user')
+            .then(response => {
+                this.product.user_id = response.body.id
+            });
     },
     methods:{
         create(){

@@ -1,47 +1,47 @@
-export default function(Vue){
+export default function (Vue) {
     let authenticatedUser = {}
-    
+
     Vue.auth = {
-        
-        setToken(token, expiration){
+
+        setToken(token, expiration) {
             localStorage.setItem('token', token)
             localStorage.setItem('expiration', expiration)
             this.setHeader()
         },
-        getToken(){
+        getToken() {
             var token = localStorage.getItem('token')
             var expiration = localStorage.getItem('expiration')
 
             // If not set
-            if(!token || !expiration)
+            if (!token || !expiration)
                 return null
 
             // 
-            if(Date.now() > parseInt(expiration)){
+            if (Date.now() > parseInt(expiration)) {
                 this.destroyToken()
                 return null
-            }else{
+            } else {
                 return token
             }
-                
+
         },
-        destroyToken(){
+        destroyToken() {
             localStorage.removeItem('token')
             localStorage.removeItem('expiration')
-        },  
-        isAuthenticated(){
-            if(this.getToken())
+        },
+        isAuthenticated() {
+            if (this.getToken())
                 return true
             else
                 return false
         },
-        setHeader(){
+        setHeader() {
             Vue.http.headers.common['Authorization'] = 'Bearer ' + this.getToken();
         },
-        setAuthenticatedUser(data){
+        setAuthenticatedUser(data) {
             authenticatedUser = data
         },
-        getAuthenticatedUser(){
+        getAuthenticatedUser() {
             return authenticatedUser
         }
     }
