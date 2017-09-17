@@ -46,6 +46,9 @@ export default {
                 .then(response =>{
                     this.product = response.body
                 })
+                // .catch(response => {
+                //     console.log(response.body.error)
+                // })
         },
         update(){
             this.$http.put('api/products/' + this.$route.params.product, this.product)

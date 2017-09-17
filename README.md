@@ -1,5 +1,6 @@
 # To Do
 - [] Disallow user to delete other people's product
+- [x] Interceptor to catch errors
 - [x] Update Product 
 - [x] ($emit and $on)
 - [x] Remove user_id in Create component
