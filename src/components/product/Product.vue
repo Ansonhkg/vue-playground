@@ -17,7 +17,7 @@
 
                 <p>
                     PID: {{ product.user_id }} | AID: {{ authenticatedUser.id }} </br>
-                    <button @click="remove()" class="btn btn-danger">Delete</button>
+                    <button @click="$emit('remove')" class="btn btn-danger">Delete</button>
                     
 
                     <div class="alert alert-warning" v-if="product.user_id !== authenticatedUser.id">
@@ -37,13 +37,5 @@
 
 export default {
     props: ['product', 'authenticatedUser'],
-    methods:{
-        remove(){
-            this.$http.delete('api/products/' + this.product.id)
-                .then(response => {
-                    console.log(response)
-                })
-        }
-    }
 }
 </script>

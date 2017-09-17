@@ -1,11 +1,13 @@
 <template>
   <div>
     <my-product 
-    v-for="product in products"
-    v-bind:data="product"
+    v-for="product in products" 
+    v-bind:data="product" 
     v-bind:key="product.name" 
-    :authenticatedUser="authenticatedUser"
-    :product="product"></my-product>
+    :authenticatedUser="authenticatedUser" 
+    :product="product"
+    @remove="remove(product)"
+    ></my-product>
   </div>
 </template>
 
@@ -20,23 +22,39 @@ export default {
       products: [],
     }
   },
-  computed:{
-    authenticatedUser(){
+  computed: {
+    authenticatedUser() {
       return this.$auth.getAuthenticatedUser()
     }
   },
-  components:{
-      'my-product' : Product
+  components: {
+    'my-product': Product
   },
   created() {
     this.fetchData()
   },
-  methods:{
-    fetchData(){
+  methods: {
+    fetchData() {
       this.$http.get("api/products")
         .then(response => {
           this.products = response.body
-      })
+        })
+    },
+    remove(product) {
+
+      // Removing item from the DOM
+      this.removeFromDOM(product, this.products)
+
+      // Remove from database
+      this.$http.delete('api/products/' + product.id)
+        .then(response => {
+          console.log(response)
+        })
+    },
+    removeFromDOM(object, objectArray){
+      let index = objectArray.indexOf(object)
+      objectArray.splice(index, 1)
+      console.log("Removed object from object array")
     }
   }
 }
