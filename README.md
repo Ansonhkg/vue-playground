@@ -1,6 +1,8 @@
 # To Do
-- [] Display owner product
-- [] Display product's owner id
+- [] Disallow user to delete other people's product
+- [x] Delete owner product
+- [x] Display owner product
+- [x] Display product's owner id
 
 # front
 

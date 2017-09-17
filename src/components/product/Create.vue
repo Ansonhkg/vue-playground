@@ -43,10 +43,7 @@ export default {
         }
     },
     created(){
-         this.$http.get('api/user')
-            .then(response => {
-                this.product.user_id = response.body.id
-            });
+        this.product.user_id = this.$auth.getAuthenticatedUser().id
     },
     methods:{
         create(){
