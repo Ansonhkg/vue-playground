@@ -27,9 +27,9 @@ const router = new VueRouter({
             }
         },
         {
-            path: './products/create',
+            path: '/products/create',
             component: require('./components/product/Create.vue'),
-            mega:{
+            meta:{
                 forAuth: true
             }
         }

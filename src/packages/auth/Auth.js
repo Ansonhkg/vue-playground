@@ -1,5 +1,8 @@
 export default function(Vue){
+    let authenticatedUser = {}
+    
     Vue.auth = {
+        
         setToken(token, expiration){
             localStorage.setItem('token', token)
             localStorage.setItem('expiration', expiration)
@@ -34,6 +37,12 @@ export default function(Vue){
         },
         setHeader(){
             Vue.http.headers.common['Authorization'] = 'Bearer ' + this.getToken();
+        },
+        setAuthenticatedUser(data){
+            authenticatedUser = data
+        },
+        getAuthenticatedUser(){
+            return authenticatedUser
         }
     }
 
