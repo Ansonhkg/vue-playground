@@ -1,6 +1,7 @@
 # To Do
-- [] ($emit and $on)
 - [] Disallow user to delete other people's product
+- [x] Update Product 
+- [x] ($emit and $on)
 - [x] Remove user_id in Create component
 - [x] Delete product from the DOM
 - [x] Delete owner product

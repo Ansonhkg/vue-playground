@@ -32,6 +32,13 @@ const router = new VueRouter({
             meta:{
                 forAuth: true
             }
+        },
+        {
+            path: '/products/:product/update',
+            component: require('./components/product/Update.vue'),
+            meta:{
+                forAuth: true
+            }
         }
     ],
     linkActiveClass: 'active',
