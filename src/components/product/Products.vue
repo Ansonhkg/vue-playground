@@ -42,13 +42,14 @@ export default {
     },
     remove(product) {
 
-      // Removing item from the DOM
-      this.removeFromDOM(product, this.products)
 
       // Remove from database
       this.$http.delete('api/products/' + product.id)
         .then(response => {
-          console.log(response)
+
+          // Removing item from the DOM
+          this.removeFromDOM(product, this.products)
+
         })
     },
     removeFromDOM(object, objectArray){

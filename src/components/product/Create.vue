@@ -36,14 +36,10 @@ export default {
         return{
             product:{
                 name: '',
-                user_id: 0,
                 price: 0,
                 description: ''
             }
         }
-    },
-    created(){
-        this.product.user_id = this.$auth.getAuthenticatedUser().id
     },
     methods:{
         create(){
