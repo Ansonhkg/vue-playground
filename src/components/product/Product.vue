@@ -4,8 +4,9 @@
             <img src="https://www.dogids.com/blog/wp-content/uploads/2013/09/dog-poop-no-sign-300x274.jpg" width=200 height=200 alt="">
 
             <div class="caption">
-                <h3>{{ product.name }}</h3>
+                <h3>{{ product.id }} | {{ product.name }}</h3>
                 <p>{{ product.price }}</p>
+                <h5>Owner ID: {{ product.user_id }}</h5>
                 <hr>
 
                 <p>

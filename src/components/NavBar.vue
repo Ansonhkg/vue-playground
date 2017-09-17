@@ -47,9 +47,10 @@ export default {
       if(this.$auth.isAuthenticated()){
         this.isAuth = true
 
+        // Check if user object is empty
         if(Object.keys(this.user).length === 0){
-          this.fetchData()
-          console.log("Fetched")
+          this.setAuthenticatedUser()
+          console.log("Refreshed: Set Authenticated User")
         }
         
       }else{
@@ -60,7 +61,7 @@ export default {
   },
   created() {
     this.isAuth = this.$auth.isAuthenticated()
-    this.fetchData()
+    this.setAuthenticatedUser()
   },
   methods: {
     logout() {
@@ -68,12 +69,13 @@ export default {
       this.$router.push('/login')
       this.user = {}
     },
-    fetchData(){
+    setAuthenticatedUser(){
       this.$http.get("api/user")
         .then(response => {
-          this.user = response.body
+          this.$auth.setAuthenticatedUser(response.body)
+          this.user = this.$auth.getAuthenticatedUser()
       })
-    }
+    },
   }
 
 }

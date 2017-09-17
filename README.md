@@ -1,3 +1,7 @@
+# To Do
+- [] Display owner product
+- [] Display product's owner id
+
 # front
 
 > A Vue project created to mess around its functionalities
