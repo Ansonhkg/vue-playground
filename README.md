@@ -1,6 +1,8 @@
 # To Do
-- [] Add package vee validate
-- [] Disallow user to delete other people's product
+- [] DB: Change user_id to foreign key
+- [x] Disallow user to delete other people's product
+- [] Implement Amazon S3 when Upload
+- [x] Add package vee validate
 - [x] Interceptor to catch errors
 - [x] Update Product 
 - [x] ($emit and $on)
