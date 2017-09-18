@@ -1,4 +1,5 @@
 # To Do
+- [] Add package vee validate
 - [] Disallow user to delete other people's product
 - [x] Interceptor to catch errors
 - [x] Update Product 

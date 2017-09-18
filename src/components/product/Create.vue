@@ -9,7 +9,10 @@
 
                         <div class="form-group">
                             <label for="name">Name:</label>
-                            <input v-model="product.name" type="text" class="form-control">
+                            <input v-validate="'required'" name="name" autofocus v-model="product.name" type="text" class="form-control">
+                            <span v-show="errors.has('name')">
+                                {{ errors.first('name') }}
+                            </span>
                         </div>
 
                         <div class="form-group">
