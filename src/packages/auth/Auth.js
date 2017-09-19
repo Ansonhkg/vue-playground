@@ -43,6 +43,9 @@ export default function (Vue) {
         },
         getAuthenticatedUser() {
             return authenticatedUser
+        },
+        testing(){
+            return 'hello'
         }
     }
 

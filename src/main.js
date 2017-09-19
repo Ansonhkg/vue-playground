@@ -4,6 +4,7 @@ import Router from './routes.js'
 import VueResource from './resource.js'
 import Auth from './packages/auth/Auth.js'
 import VeeValidate from 'vee-validate'
+import {store} from './store/store'
 
 Vue.use(Auth)
 Vue.use(VeeValidate)
@@ -43,6 +44,7 @@ Router.beforeEach(
 )
 
 new Vue({
+  store: store,
   el: '#app',
   render: h => h(App),
   router: Router,

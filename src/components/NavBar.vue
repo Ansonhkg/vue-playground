@@ -2,7 +2,7 @@
   <div class="header clearfix">
     <nav>
       <ul class="nav nav-pills float-left">
-
+        
         <router-link v-if="!isAuth" tag="li" to="/login">
           <a>Login</a>
         </router-link>
@@ -37,34 +37,25 @@
 export default {
   data() {
     return {
-      isAuth: null,
       user: {}
     }
   },
-  watch: {
-    $route() {
-
-      if(this.$auth.isAuthenticated()){
-        this.isAuth = true
-
-        // Check if user object is empty
-        if(Object.keys(this.user).length === 0){
-          this.setAuthenticatedUser()
-          console.log("Refreshed: Set Authenticated User")
-        }
-        
-      }else{
-        this.isAuth = false
-      }
-      console.log("Navbar: " + this.isAuth)
-    }
+  computed:{
+    isAuth(){
+      return this.$store.getters.isAuth
+    },
   },
   created() {
-    this.isAuth = this.$auth.isAuthenticated()
-    this.setAuthenticatedUser()
+
+    if(this.$auth.isAuthenticated()){
+      this.$store.commit('setUserLoggedInStatus', true)
+      this.setAuthenticatedUser()
+    }
+
   },
   methods: {
     logout() {
+      this.$store.commit('setUserLoggedInStatus', false)
       this.$auth.destroyToken()
       this.$router.push('/login')
       this.user = {}

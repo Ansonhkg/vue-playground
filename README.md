@@ -1,7 +1,9 @@
 # To Do
-- [] DB: Change user_id to foreign key
-- [x] Disallow user to delete other people's product
+- [] Import url using @ instead of ./ (Test)
 - [] Implement Amazon S3 when Upload
+- [x] Implement Vuex store
+- [x] Laravel: Change user_id to foreign key
+- [x] Disallow user to delete other people's product
 - [x] Add package vee validate
 - [x] Interceptor to catch errors
 - [x] Update Product 

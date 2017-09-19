@@ -25,25 +25,23 @@ export default {
             password: ''
         }
     },
-
+    computed:{
+        oauth(){
+            return this.$store.state.oauth
+        }
+    },
     methods: {
 
         login() {
 
-            var data = {
-                client_id: 2,
-                client_secret: 'ptsDIIZWPwQ0cY2yxvgYo0Auul09TYhDFK6tmZnj',
-                grant_type: 'password',
+            // Merging oauth and data objects together
+            var data = Object.assign({}, this.oauth, {
                 username: this.email,
                 password: this.password
-            }
+            })
 
-            this.$http.post("oauth/token", data)
-                .then(response => {
-                    console.log(response)
-                    this.$auth.setToken(response.body.access_token, response.body.expires_in + Date.now())
-                    this.$router.push('/feed')
-                })
+            // Trigger an action in store.js 
+            this.$store.dispatch('login', data)
         },
 
     }
